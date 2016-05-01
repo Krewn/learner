@@ -72,6 +72,8 @@ def fetchpPrediction(data, row, col):  # Samples and assays as rows and columns
         if (k != row and dims != 0 and data[k][col] != None):  # does not use samples with 0** common genes to make predictions.
             p += data[k][col] / ((euc+0.000001) ** 2)  # Adds to a weighted sum
             bot += m / ((euc+0.000001) ** 2)  # Adds to a weighted averager    ## poorMan's limit
+	if(bot == 0):
+		return(colMin(data, col)+m/2.)
     return ( colMin(data, col)+m*(p / bot) )
 
 
