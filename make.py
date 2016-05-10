@@ -12,11 +12,12 @@ def colPrt(s,l):
     CSI="\x1B["
     return(CSI+"31;40m" + str(s) + CSI + "0m"+(" "*(l-len(str(s))) if len(str(s))<= l else "#"))
 
-class smarty():
-    things = [] # row names
-    attrs = [] # col names
-    data = []
-    predTable = []
+class smarty:
+    def __init__(self):
+        self.things = [] # row names
+        self.attrs = [] # col names
+        self.data = []
+        self.predTable = []
     def learn(self,s):
         print(s)
         s = s.lower()
@@ -75,23 +76,3 @@ class smarty():
                     out+=spacePrt(str(k2),15)
         print("\n\n"+out+"\n\n")
 
-a = smarty()                                                                                                                                              
-a.learn("dog bark")                                                                                                                                       
-a.learn("dog is warmBlooded")                                                                                                                             
-a.learn("fish is not warmBlooded")                                                                                                                        
-a.learn("fish has scales")                                                                                                                                
-a.learn("lizard not warmBlooded")                                                                                                                         
-a.learn("cat is warmBlooded")                                                                                                                             
-a.learn("cat does not have scales")                                                                                                                       
-a.learn("cat does not bark")                                                                                                                              
-a.learn("My cat is pretty coldBlooded")                                                                                                                   
-a.learn("His feline is warm-blooded")                                                                                                                     
-a.learn("His cat is warm-blooded")
-
-
-#a.learn("Sas likes IWW")
-#a.learn("mom likes IWW")
-#a.learn("mom likes dearFranky")
-
-a.predPrt()
-a.think()
