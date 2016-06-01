@@ -59,7 +59,7 @@ def EucABdims(a, b):
     return ((dist, d))
 
 
-def fetchpPrediction(data, row, col):  # Samples and assays as rows and columns
+def fetchpPrediction(data, row, col):                          # Rows of models, columns of output layer.
     p = 0.  # prediction = 0
     bot = 0.
     m = colMax(data, col) - colMin(data, col)
@@ -67,11 +67,11 @@ def fetchpPrediction(data, row, col):  # Samples and assays as rows and columns
         return(colMax(data, col))
     for k in range(0, len(data)):
         temp = EucABdims(data[k], data[row])
-        euc = temp[0]  # the euclidean distance between two samples
-        dims = temp[1]  # the number of genes in the union of two samples data
+        euc = temp[0]                                          # the euclidean distance between two samples
+        dims = temp[1]                                         # the number of genes in the union of two samples data
         if (k != row and dims != 0 and data[k][col] != None):  # does not use samples with 0** common genes to make predictions.
-            p += data[k][col] / ((euc+0.000001) ** 2)  # Adds to a weighted sum
-            bot += m / ((euc+0.000001) ** 2)  # Adds to a weighted averager    ## poorMan's limit
+            p += data[k][col] / ((euc+0.000001) ** 2)          # Adds to a weighted sum
+            bot += m / ((euc+0.000001) ** 2)                   # Adds to a weighted averager    ## poorMan's limit : p Im2lz7
 	if(bot == 0):
 		return(colMin(data, col)+m/2.)
     return ( colMin(data, col)+m*(p / bot) )

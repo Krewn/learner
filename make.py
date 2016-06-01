@@ -11,6 +11,10 @@ def colPrt(s,l):
         s = round(s,3)
     CSI="\x1B["
     return(CSI+"31;40m" + str(s) + CSI + "0m"+(" "*(l-len(str(s))) if len(str(s))<= l else "#"))
+	
+def red(s):
+    CSI="\x1B["
+    return(CSI+"31;40m" + str(s) + CSI + "0m")
 
 class smarty:
     def __init__(self):
