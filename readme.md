@@ -1,4 +1,4 @@
-##try this:
+## Try this:
 <ex>
 #!/bin/python
 
