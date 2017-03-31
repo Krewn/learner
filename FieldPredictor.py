@@ -1,6 +1,6 @@
 ###########################################################    ____                   ______ _      _     _
 ##   Author : Kevin Nelson                             ####  / ____|                 |  ____(_)    | |   | |
-#		kpie314@gmail.com   ArtisticLicense             ### | |  __  ___ _ __   ___  | |__   _  ___| | __| |___
+#            kpie314@gmail.com   ArtisticLicense             ### | |  __  ___ _ __   ___  | |__   _  ___| | __| |___
 ##      Creating predictive fields from given data     #### | | |_ |/ _ \ '_ \ / _ \ |  __| | |/ _ \ |/ _` / __|
 ########################################################### | |__| |  __/ | | |  __/ | |    | |  __/ | (_| \__ \
 ###########################################################  \_____|\___|_| |_|\___| |_|    |_|\___|_|\__,_|___/
@@ -9,7 +9,7 @@ def Min(a):
     m = None
     for k in a:
         if (k != None):
-            m = k if (k < m or m is None)else m
+            m = k if (m == None or k < m)else m
     return m
 
 
@@ -17,7 +17,7 @@ def Max(a):
     m = None
     for k in a:
         if (k != None):
-            m = k if (k > m or m is None)else m
+            m = k if (m == None or k > m)else m
     return m
 
 
@@ -72,8 +72,8 @@ def fetchpPrediction(data, row, col):                          # Rows of models,
         if (k != row and dims != 0 and data[k][col] != None):  # does not use samples with 0** common genes to make predictions.
             p += data[k][col] / ((euc+0.000001) ** 2)          # Adds to a weighted sum
             bot += m / ((euc+0.000001) ** 2)                   # Adds to a weighted averager    ## poorMan's limit : p Im2lz7
-	if(bot == 0):
-		return(colMin(data, col)+m/2.)
+    if(bot == 0):
+        return(colMin(data, col)+m/2.)
     return ( colMin(data, col)+m*(p / bot) )
 
 

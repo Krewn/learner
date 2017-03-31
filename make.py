@@ -51,11 +51,11 @@ class smarty:
             for n2,k2 in enumerate(k):
                 if(k2 == None):
                     predictions.append((self.things[n],self.attrs[n2],fp.fetchpPrediction(self.data, n, n2)))
-        thirdCol = map(itemgetter(2), predictions)
+        """thirdCol = map(itemgetter(2), predictions)
         Pos = thirdCol.index(max(thirdCol))
         Neg = thirdCol.index(max(thirdCol))
         print(predictions[Pos])
-        print(predictions[Neg])
+        print(predictions[Neg])"""
     def prt(self):
         out = ""
         out+=spacePrt("",15)
