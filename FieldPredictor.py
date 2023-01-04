@@ -1,9 +1,9 @@
-###########################################################    ____                   ______ _      _     _
-##   Author : Kevin Nelson                             ####  / ____|                 |  ____(_)    | |   | |
-#            kpie314@gmail.com   ArtisticLicense       ### | |  __  ___ _ __   ___  | |__   _  ___| | __| |___
-##      Creating predictive fields from given data     #### | | |_ |/ _ \ '_ \ / _ \ |  __| | |/ _ \ |/ _` / __|
-########################################################### | |__| |  __/ | | |  __/ | |    | |  __/ | (_| \__ \
-###########################################################  \_____|\___|_| |_|\___| |_|    |_|\___|_|\__,_|___/
+"""
+Author : Kevin Nelson 
+Contact: kpie314@gmail.com
+ArtisticLicense
+Creating predictive fields from given data
+"""
 
 def Min(a):
     m = None
