@@ -76,13 +76,13 @@ def fetchpPrediction(data, row, col):                          # Rows of models,
         return(colMin(data, col)+m/2.)
     return ( colMin(data, col)+m*(p / bot) )
 
-
+"""
 a = [[0., 0., 1.],
      [0., None, 1.],
      [0., 1, 0.]]
 
 print(str(fetchpPrediction(a, 1, 1))) #Example filling in a blank value
-
+"""
 def cook(data):
     r = [ k[:] for k in data ] #makes a detached copy from
     for k in range(0,len(r)):
@@ -98,8 +98,9 @@ def pr(data):
             s += str(round(k2,5) if k2!= None else "Nan")+"\t"*3
         s += "\n"
     return(s)
-
+"""
 print("In:")
 print(pr(a))
 print("Out:")
 print(pr(cook(a))) # example batch run for a table
+"""

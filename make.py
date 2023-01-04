@@ -1,6 +1,7 @@
 import FieldPredictor as fp
 from operator import itemgetter
 import time
+
 def spacePrt(s,l):
     if(type(s) == float):
         s = round(s,3)
@@ -22,8 +23,9 @@ class smarty:
         self.attrs = [] # col names
         self.data = []
         self.predTable = []
-    def learn(self,s):
-        print(s)
+    def learn(self,s,verbose = False):
+        if verbose:
+            print(s)
         s = s.lower()
         s = s.split(" ")
         rn = s[0]
@@ -43,8 +45,8 @@ class smarty:
                 for k in self.data:
                     k.append(None)
         self.data[self.things.index(rn)][self.attrs.index(cn)] = 0 if neg else 1
-        print(self.data)
-
+        if verbose:
+            print(self.data)
     def think(self):
         predictions = []
         for n,k in enumerate(self.data):
@@ -75,7 +77,7 @@ class smarty:
             out+="\n"+spacePrt(self.things[n],15)
             for n2,k2 in enumerate(k):
                 if(k2 == None):
-                    out+=colPrt(fp.fetchpPrediction(self.data,n,n2),15)
+                    out+=spacePrt(fp.fetchpPrediction(self.data,n,n2),15)
                 else:
                     out+=spacePrt(str(k2),15)
         print("\n\n"+out+"\n\n")
